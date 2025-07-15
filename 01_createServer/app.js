@@ -1,5 +1,3 @@
-// console.log("Hello, World!");
-
 const http = require('http');
 
 const server = http.createServer((req,res) => {
@@ -15,7 +13,7 @@ const server = http.createServer((req,res) => {
         res.end("Services Page");
     }
 
-    if(req.url == "/"){
+    if(req.url == "/"){ 
         res.end("Home Page");
     }
 })
