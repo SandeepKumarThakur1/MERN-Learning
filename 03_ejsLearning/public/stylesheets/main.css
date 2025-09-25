@@ -1,0 +1,439 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --white-color: #f6f4f5;
+  --beige-color: #d2c8bc;
+  --table-color: #f0eff1;
+  --black-color: #262721;
+  --logo-beige-color: #6b4c3a;
+  --primary-font: "Poppins", sans-serif;
+  --logo-font: "DM Sans", sans-serif;
+}
+/* NAVBAR */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background-color: var(--white-color);
+  font-family: var(--primary-font);
+  padding: 0px 10px;
+}
+nav span {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+#logo {
+  width: 25%;
+  font-size: 28px;
+  font-family: var(--logo-font);
+  font-weight: bold;
+  color: var(--logo-beige-color);
+}
+#logo img {
+  width: 80px;
+}
+#links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 50%;
+}
+#links :first-child {
+  color: var(--logo-beige-color);
+}
+li {
+  list-style: none;
+}
+#icons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 18px;
+  width: 25%;
+}
+#icons img {
+  width: 25px;
+}
+/* NAVBAR ENDS*/
+
+/* HOME */
+.home {
+  width: 100%;
+  height: 800px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 30% 20% 25%;
+  position: relative;
+  background-image: url(https://www.caninecampus.us/wp-content/uploads/2018/01/Blog-Featured-Image-Puppy-Training-Tips.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center left;
+  place-items: center;
+}
+.home h1 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  text-align: center;
+  font-size: 8vw;
+  font-family: var(--logo-font);
+}
+.home h1 span {
+  color: var(--logo-beige-color);
+}
+.home h2 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  text-align: center;
+  font-size: 3vw;
+  font-family: var(--logo-font);
+}
+#c1,
+#c2,
+#c3 {
+  position: relative;
+}
+.home .steps .circles {
+  width: 20px;
+  height: 20px;
+  background-color: var(--logo-beige-color);
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: 40%;
+}
+.home .steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 28px;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  text-align: center;
+  font-size: 1.2vw;
+  border-top: 3px solid var(--logo-beige-color);
+  position: relative;
+  font-family: var(--primary-font);
+}
+.home .steps p {
+  color: var(--logo-beige-color);
+  margin: 0;
+}
+/* HOME ENDS*/
+
+/* Page2*/
+.p2 {
+  background-color: var(--table-color);
+  padding: 10px;
+  height: 800px;
+}
+.p2 h2 {
+  text-align: center;
+  font-size: 4vw;
+  font-family: var(--logo-font);
+  margin: 0;
+}
+.categories {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  gap: 24px;
+  justify-content: center;
+  margin: auto;
+}
+.categories button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: transparent;
+  font-family: var(--primary-font);
+  font-weight: bold;
+  background-color: var(--beige-color);
+  color: var(--logo-beige-color);
+}
+.categories button:nth-child(2) {
+  background-color: var(--logo-beige-color);
+  color: var(--beige-color);
+}
+.dogscontainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 700px;
+}
+#dogs {
+  height: 700px;
+}
+.tag {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--primary-font);
+  font-weight: bold;
+}
+.tag p {
+  margin: 0;
+}
+.tag p:nth-child(2) {
+  color: var(--logo-beige-color);
+}
+.dogbox {
+  /* border: 2px solid; */
+  border-radius: 50%;
+  position: relative;
+}
+.t1 {
+  bottom: 50%;
+  left: 0%;
+}
+.t2 {
+  bottom: 50%;
+  right: -5%;
+}
+.t3 {
+  top: 15%;
+  left: 10%;
+}
+.t4 {
+  top: 15%;
+  right: 10%;
+}
+.t5 {
+  top: 5%;
+  left: 45%;
+}
+
+/* Page2 Ends*/
+
+/* Page3*/
+.p3 {
+  background-color: var(--beige-color);
+  padding: 20px;
+  font-family: var(--primary-font);
+}
+.p3 h2,
+.p3 h4,
+.p3 p {
+  margin: 0;
+  text-align: center;
+  padding: 10px;
+}
+.p3 h2 {
+  font-size: 4vw;
+}
+.p3 p {
+  color: var(--logo-beige-color);
+  font-weight: bold;
+  width: 70%;
+  margin: auto;
+}
+.offer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-weight: bold;
+  color: var(--logo-beige-color);
+}
+.offer img {
+  height: 50px;
+}
+.dogbox2 {
+  height: 500px;
+  width: max-content;
+  /* border: 2px solid; */
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+}
+#of1 {
+  bottom: 20px;
+  left: -100px;
+}
+#of2 {
+  right: -100px;
+  bottom: 20px;
+}
+#of3 {
+  bottom: 30%;
+  left: -150px;
+  color: black;
+}
+#of4 {
+  bottom: 30%;
+  right: -150px;
+  color: black;
+}
+#of5 {
+  top: 20%;
+  left: -80px;
+}
+#of6 {
+  top: 20%;
+  right: -80px;
+}
+.banner {
+  display: flex;
+  width: 100%;
+  /* border: 2px solid; */
+  align-items: center;
+  font-family: var(--logo-font);
+}
+.banner h1,
+.banner p {
+  margin: 0;
+}
+.section {
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+}
+.section:nth-child(1) {
+  background-color: var(--black-color);
+  color: white;
+}
+.section:nth-child(2),
+.section:nth-child(4) {
+  background-color: var(--logo-beige-color);
+  color: white;
+}
+.section:nth-child(3) {
+  color: var(--black-color);
+  background-color: var(--white-color);
+}
+/* Page3 Ends*/
+/* Page4*/
+
+.p4 {
+  text-align: center;
+  background-color: var(--white-color);
+  padding: 20px;
+  padding-bottom: 40px;
+  font-family: var(--primary-font);
+}
+.p4 h1 {
+  margin-top: 0;
+}
+.cards {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.cards img {
+  height: 200px;
+  position: absolute;
+}
+.card {
+  width: 25%;
+  border-radius: 30px;
+  height: 300px;
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+.card p {
+  color: var(--logo-beige-color);
+}
+.c1 img {
+  right: -80px;
+  bottom: -40px;
+  z-index: 2;
+}
+.c3 img {
+  left: -60px;
+  top: -70px;
+  z-index: 2;
+}
+/* Page4 Ends*/
+/* Page5*/
+.p5 {
+  background-color: var(--black-color);
+  padding: 20px;
+  text-align: center;
+  font-family: var(--primary-font);
+}
+.p5 h1 {
+  margin-top: 0;
+  color: var(--white-color);
+}
+.p5content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 100px;
+}
+.left {
+  text-align: left;
+  color: var(--white-color);
+}
+.left img {
+  width: 25px;
+  filter: invert();
+}
+.add,
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  background-color: var(--beige-color);
+  border-radius: 15px;
+  width: 30%;
+}
+.right input {
+  border-radius: 5px;
+  border: transparent;
+  padding: 5px;
+  font-family: var(--primary-font);
+  color: var(--logo-beige-color);
+  width: 100%;
+}
+#msg {
+  height: 100px;
+}
+.right button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: transparent;
+  font-family: var(--primary-font);
+  font-weight: bold;
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+/* Page5 Ends*/
+/* FOOTER*/
+footer {
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer #logo {
+  display: flex;
+  align-items: center;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px !important;
+}
+/* FOOTER Ends*/

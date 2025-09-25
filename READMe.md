@@ -162,6 +162,7 @@ app.listen(3000)
 ```
 
 ## Express JS
+
 Express.js (or just Express) is a web framework for Node.js.
 
 It makes building web servers, APIs, and web applications easier and faster than using the plain Node.js http module.
@@ -189,3 +190,50 @@ It makes building web servers, APIs, and web applications easier and faster than
 | **Middleware**  | You need to handle manually or build your own.                                        | Supports middleware easily (`app.use`) for logging, authentication, etc.           |
 | **Performance** | Very fast (bare metal)                                                                | Slightly slower due to abstraction but much easier to develop and maintain.        |
 | **Use Case**    | Good for learning, small servers, or highly customized setups.                        | Ideal for real-world applications, APIs, RESTful services, and full-stack apps.    |
+
+
+## Express with EJS Setup
+1. EJS Setup -> Install EJS
+```bash
+npm install ejs
+```
+
+2. Configure EJS
+
+```bash
+app.set("view engine", "ejs")
+```
+
+3. Create views folder
+   views/index.ejs
+
+```bash
+Example inside index.ejs: <h1><%= text %></h1>
+```
+
+4. Render EJS file
+
+```bash
+res.render("index", { text: "EJS Example" })
+```
+
+#### Template Engines
+
+1. EJS
+2. Pug
+3. Handlebars
+4. Mustache
+
+5. Static Files Setup -> Create a public folder
+
+6. Use express static
+
+```bash
+app.use(express.static("public"))
+```
+
+7. Example in HTML/EJS:
+
+```bash
+<link rel="stylesheet" href="/stylesheets/main.css">
+```
