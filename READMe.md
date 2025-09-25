@@ -160,3 +160,32 @@ app.get('/about', (req, res) => {
 
 app.listen(3000)
 ```
+
+## Express JS
+Express.js (or just Express) is a web framework for Node.js.
+
+It makes building web servers, APIs, and web applications easier and faster than using the plain Node.js http module.
+
+#### 🔑 Key Features:
+
+1. **Simpler Server Creation** – Less code to create routes and handle requests.
+
+2. **Routing System** – Built-in support for GET, POST, PUT, DELETE routes.
+
+3. **Middleware Support** – Easily use functions to process requests, like authentication, logging, or JSON parsing.
+
+4. **Scalable** – Good for small apps and large real-world applications.
+
+5. **Works with Node.js** – It’s not a replacement, it’s built on top of Node.js.
+
+### ⚡ Node.js vs Express.js
+
+| Feature         | **Node.js**                                                                           | **Express.js**                                                                     |
+| --------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Definition**  | A **runtime environment** that allows JavaScript to run on the server (backend).      | A **framework** built on top of Node.js to make server creation easier and faster. |
+| **Level**       | Low-level (basic server setup, more manual work).                                     | High-level (provides tools, routing, middleware support).                          |
+| **Ease of Use** | You need to write more code for routes, handling requests, responses, and middleware. | Easier and faster: simple syntax for routes, middleware, and APIs.                 |
+| **Routing**     | Manual routing using the `http` module.                                               | Built-in routing system with `app.get`, `app.post`, etc.                           |
+| **Middleware**  | You need to handle manually or build your own.                                        | Supports middleware easily (`app.use`) for logging, authentication, etc.           |
+| **Performance** | Very fast (bare metal)                                                                | Slightly slower due to abstraction but much easier to develop and maintain.        |
+| **Use Case**    | Good for learning, small servers, or highly customized setups.                        | Ideal for real-world applications, APIs, RESTful services, and full-stack apps.    |
