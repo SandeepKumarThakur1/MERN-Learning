@@ -191,8 +191,24 @@ It makes building web servers, APIs, and web applications easier and faster than
 | **Performance** | Very fast (bare metal)                                                                | Slightly slower due to abstraction but much easier to develop and maintain.        |
 | **Use Case**    | Good for learning, small servers, or highly customized setups.                        | Ideal for real-world applications, APIs, RESTful services, and full-stack apps.    |
 
+# EJS
+EJS (Embedded JavaScript Templating) is a template engine for Node.js and Express.js.
+It allows you to write HTML with embedded JavaScript.
 
-## Express with EJS Setup
+**In short:**
+
+It lets you create dynamic web pages.<br>
+You can embed variables, conditions, and loops directly inside your HTML files.
+
+#### 🔑 Key Features of EJS
+
+- Embed JavaScript in HTML using <%= %> or <% %>.
+- Fast and lightweight – only adds a thin layer on top of plain HTML.
+- Supports partials – reuse components (like header, footer, navbar).
+- Works with Express.js – simple to integrate as a view engine.
+- Similar to plain HTML – easy for beginners.
+
+### Express with EJS Setup
 1. EJS Setup -> Install EJS
 ```bash
 npm install ejs
@@ -237,3 +253,33 @@ app.use(express.static("public"))
 ```bash
 <link rel="stylesheet" href="/stylesheets/main.css">
 ```
+
+### 🚀 Express Generator
+Express Generator is a command-line tool provided by Express.js to quickly create a skeleton/boilerplate for an Express application.
+
+Instead of writing all the initial setup code manually, you can generate a ready-made project structure with just one command.
+
+#### Setup steps for Express Generator
+1. Install Node.js & npm (check with node -v and npm -v).
+2. Install Express Generator globally:
+```bash
+npm install -g express-generator
+```
+3. Create a new app:
+```bash
+express appName --view=ejs
+```
+4. Move into the project folder:
+```bash
+cd appName
+```
+5. Install dependencies:
+```bash
+npm install
+```
+6. Start the server:
+```bash
+npx nodemon 
+npm start
+```
+7. Open in browser: http://localhost:3000
