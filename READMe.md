@@ -192,6 +192,7 @@ It makes building web servers, APIs, and web applications easier and faster than
 | **Use Case**    | Good for learning, small servers, or highly customized setups.                        | Ideal for real-world applications, APIs, RESTful services, and full-stack apps.    |
 
 # EJS
+
 EJS (Embedded JavaScript Templating) is a template engine for Node.js and Express.js.
 It allows you to write HTML with embedded JavaScript.
 
@@ -209,7 +210,9 @@ You can embed variables, conditions, and loops directly inside your HTML files.
 - Similar to plain HTML – easy for beginners.
 
 ### Express with EJS Setup
+
 1. EJS Setup -> Install EJS
+
 ```bash
 npm install ejs
 ```
@@ -255,31 +258,302 @@ app.use(express.static("public"))
 ```
 
 ### 🚀 Express Generator
+
 Express Generator is a command-line tool provided by Express.js to quickly create a skeleton/boilerplate for an Express application.
 
 Instead of writing all the initial setup code manually, you can generate a ready-made project structure with just one command.
 
 #### Setup steps for Express Generator
+
 1. Install Node.js & npm (check with node -v and npm -v).
 2. Install Express Generator globally:
+
 ```bash
 npm install -g express-generator
 ```
+
 3. Create a new app:
+
 ```bash
 express appName --view=ejs
 ```
+
 4. Move into the project folder:
+
 ```bash
 cd appName
 ```
+
 5. Install dependencies:
+
 ```bash
 npm install
 ```
+
 6. Start the server:
+
 ```bash
-npx nodemon 
+npx nodemon
 npm start
 ```
+
 7. Open in browser: http://localhost:3000
+
+## MongoDB & Databases
+
+### What is MongoDB?
+
+- MongoDB is a NoSQL database (non-relational database).
+- It stores data in BSON (Binary JSON) format, which makes it flexible and schema-less compared to relational databases.
+
+### What is a Database?
+
+- A Database is a place where the data of any application is stored in an organized way.
+- Example: Storing user details, product information, orders, etc.
+
+### Types of Databases (Mainly)
+
+1. Relational Database (RDBMS)
+
+- Example: SQL, MySQL, PostgreSQL
+- Data stored in tables (rows & columns).
+- Follows a fixed schema.
+
+2. Non-Relational Database (NoSQL)
+
+- Example: MongoDB, Firebase
+- Data stored in documents (key-value pairs, JSON-like format).
+- Schema-less (flexible structure).
+
+### What is Mongoose?
+
+- Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js.
+- It helps you interact with a MongoDB database in an easier, structured, and more secure way.
+
+### Step by Step how to use MongoDB with Mongoose
+
+1. Install MongoDB (server)
+2. Install Mongoose
+
+```bash
+npm install mongoose
+```
+
+3. Require Mongoose and set up the connection
+
+```bash
+mongoose.connect('mongodb://127.0.0.1:27017/dbname');
+```
+
+4. Make a Schema
+
+```bash
+mongoose.Schema({...})
+```
+
+5. Create a Model and export it
+
+```bash
+mongoose.model('ModelName', schema).
+module.exports = mongoose.model(...)
+```
+
+#### Example `models/User.js`
+
+```bash
+# // models/User.js
+const mongoose = require('mongoose');
+
+const dbURI = 'mongodb://127.0.0.1:27017/testdbname'; // change testdbname if you want
+
+# // connect to MongoDB
+mongoose
+  .connect(dbURI)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
+
+# // define schema (blueprint of a document)
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  name: String,
+  age: Number
+}, { timestamps: true }); // timestamps adds createdAt and updatedAt
+
+# // create and export the model
+// Model name 'User' -> collection will be 'users' (auto-pluralized)
+module.exports = mongoose.model('User', userSchema);
+
+```
+
+#### After create user then `app.js`
+
+```bash
+const express = require('express');
+const app = express();
+const User = require('./models/User'); // path to the file above
+
+app.get('/create-user', async (req, res) => {
+  try {
+    const user = await User.create({ username: 'sandeep', name: 'Sandeep', age: 22 });
+    res.json(user);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+app.get('/users', async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+```
+
+### Client & Server Concepts
+
+1. Client → Cookies
+
+- Small pieces of data stored in the client’s (browser) memory.
+- Example: Remembering login info, preferences.
+
+2. Server → Sessions
+
+- Server-side storage to keep track of user’s data during a session.
+- Example: Shopping cart items, logged-in user info.
+
+#### Session Setup in Express
+
+1. install express session
+
+```bash
+npm install express-session
+```
+
+2. use in app.js file
+
+```bash
+const session = require("express-session");
+
+app.use(
+  session({
+    secret: "mySecretKey",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }, // true only if https
+  })
+);
+```
+
+##### **NOTE**
+
+- create - req.session.key = value
+- read - req.session.key
+- delete - req.session.destroy(callback)
+
+#### Cookie Setup in Express
+
+1. install cookie parser -> by default install if we install express-generator
+
+```bash
+npm install cookie-parser
+```
+
+2. use in app.js file
+
+```bash
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+```
+
+##### **NOTE :- How to use cookie**
+
+```bash
+
+- Create cookie
+router.get("/", function (req, res) {
+  res.cookie("age", 25);
+  res.send("Cookie is set");
+  // res.render("index");
+});
+
+- read cookie
+router.get("/getcookie", function (req, res) {
+  var age = req.cookies.age;
+  res.send("Age of the user is " + age);
+});
+
+- delete cookie
+router.get("/deletecookie", function (req, res) {
+  res.clearCookie("age");
+  res.send("Cookie is deleted");
+});
+```
+
+## What is a Flash Message?
+
+- A flash message is a temporary message that is stored in the session and removed after being displayed once.
+- Commonly used for showing success, error, or warning notifications in web apps.
+
+#### 👉 Example:
+
+- User logs in → req.flash("success", "Login successful!")
+- Redirects to dashboard → message is shown only once.
+- Refresh page → message disappears (auto-cleared).
+
+### Step-by-step setup for flash messages in Express
+
+1. Install packages
+
+```bash
+npm install connect-flash
+npm install express-session
+```
+
+2. File: app.js — main setup (order matters!)
+
+```bash
+const session = require('express-session');
+const flash = require('connect-flash');
+
+# // session
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "keyboard cat",
+  })
+);
+
+# // flash message
+app.use(flash());
+
+```
+
+3. File: routes/index.js — example routes (set + show)
+
+```bash
+var express = require("express");
+var router = express.Router();
+
+router.get("/", function (req, res) {
+  res.render("index");
+});
+
+# // create Flash Message
+router.get("/failed", function (req, res) {
+  req.flash("age", 22);
+  req.flash("name", "John Doe");
+  res.send("Created a flash message. Go and check in /check route");
+});
+
+# // read Flash Message
+router.get("/check", function (req, res) {
+  res.send(`Flash messages are logged in console`);
+  console.log(req.flash("age"), req.flash("name"));
+});
+
+module.exports = router;
+
+```
